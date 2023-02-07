@@ -9,5 +9,5 @@ class RuanganTable extends Model
 {
     use HasFactory;
     protected $table ='ruangan_table';
-    protected $guarded =['id'];
+    // protected $guarded =['id'];
 }

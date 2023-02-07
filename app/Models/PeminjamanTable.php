@@ -9,5 +9,5 @@ class PeminjamanTable extends Model
 {
     use HasFactory;
     protected $table ='peminjaman_table';
-    protected $guarded =['id'];
+    // protected $guarded =['id'];
 }

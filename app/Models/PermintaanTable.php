@@ -9,5 +9,5 @@ class PermintaanTable extends Model
 {
     use HasFactory;
     protected $table ='permintaan_table';
-    protected $guarded =['id'];
+    // protected $guarded =['id'];
 }
