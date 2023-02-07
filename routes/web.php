@@ -48,3 +48,5 @@ Route::middleware(['auth', 'user-access:teknisi'])->group(function () {
   
     Route::get('/teknisi/home', [HomeController::class, 'teknisiHome'])->name('teknisi.home');
 });
+
+Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
