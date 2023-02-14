@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 
-class CreateUsersSeeder extends Seeder
+class CreateUserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,26 +17,28 @@ class CreateUsersSeeder extends Seeder
     {
         $users = [
             [
-               'name'=>'Admin User',
-               'email'=>'admin@tutsmake.com',
-               'type'=>1,
+               'name'=>'User',
+               'email'=>'user@gmail.com',
+               'type'=> 0,
                'password'=> bcrypt('123456'),
             ],
             [
-               'name'=>'Teknisi User',
-               'email'=>'teknisi@tutsmake.com',
+               'name'=>'Teknisi',
+               'email'=>'teknisi@gmail.com.com',
+               'type'=> 1,
+               'password'=> bcrypt('123456'),
+            ],
+            [
+               'name'=>'Admin',
+               'email'=>'admin@gmail.com',
                'type'=> 2,
                'password'=> bcrypt('123456'),
             ],
-            [
-               'name'=>'User',
-               'email'=>'user@tutsmake.com',
-               'type'=>0,
-               'password'=> bcrypt('123456'),
-            ],
+            
         ];
     
-        foreach ($users as $key => $user) {
+        foreach ($users as $key => $user) 
+        {
             User::create($user);
         }
     }

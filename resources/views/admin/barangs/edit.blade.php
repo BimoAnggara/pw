@@ -42,6 +42,12 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
+                    <strong>Sumber Dana</strong>
+                    <input type="text" name="sumber_dana" class="form-control" placeholder="sumber_dana" value="{{$barang->sumber_dana}}">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
                     <strong>Tanggal Pengadaan</strong>
                     <input type="date" name="tanggal_pengadaan" class="form-control" placeholder="tanggal_pengadaan" value="{{$barang->tanggal_pengadaan}}">
                 </div>
@@ -55,7 +61,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Merk Barang</strong>
-                    <input type="text" name="tanggal_pengadaan" class="form-control" placeholder="tanggal_pengadaan" value="{{$barang->kondisi_barang}}">
+                    <input type="text" name="tanggal_pengadaan" class="form-control" placeholder="tanggal_pengadaan" value="{{$barang->merk_barang}}">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Auth::routes();
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 /*All Normal Users Routes List
@@ -48,13 +48,8 @@ Route::middleware(['auth', 'user-access:teknisi'])->group(function () {
 
     Route::get('/teknisi/home', [HomeController::class, 'teknisiHome'])->name('teknisi.home');
 });
-<<<<<<< HEAD
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
 Route::group(['middleware' => ['auth']], function () {
 Route::resource('barang', BarangController::class);
+Route::resource('peminjaman', PeminjamanController::class);
 });
-=======
-
-Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
-Route::resource('/data-barang', DataBarangController::class);
->>>>>>> main

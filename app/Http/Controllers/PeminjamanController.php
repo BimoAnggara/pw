@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Peminjaman;
 use Illuminate\Http\Request;
 
 class PeminjamanController extends Controller
@@ -11,9 +12,18 @@ class PeminjamanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+    
     public function index()
     {
-        // 
+        $peminjamans = Peminjaman::latest()->paginate(5);
+
+        return view('peminjamans.index',compact('peminjamans'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -23,7 +33,7 @@ class PeminjamanController extends Controller
      */
     public function create()
     {
-        //
+        return view('peminjamans.create');
     }
 
     /**
@@ -34,7 +44,21 @@ class PeminjamanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            
+            'nis' => 'required',
+            'nama_siswa' => 'required',
+            'nama_barang' => 'required',
+            'tanggal_peminjaman' => 'required',
+            'jumlah_barang_dipinjam' => 'required',
+            'id_barang' => 'required',
+            'status_peminjaman' => 'required',
+        ]);
+  
+        Peminjaman::create($request->all());
+   
+        return redirect()->route('barang.index')
+                        ->with('success','Berhasil Menyimpan !');
     }
 
     /**
@@ -56,7 +80,8 @@ class PeminjamanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $peminjamans = Peminjaman::all(); 
+        return view('peminjamans.edit',compact('peminjamans'));
     }
 
     /**

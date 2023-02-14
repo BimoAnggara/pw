@@ -1,12 +1,12 @@
-@extends ('layouts/app')
+{{-- @extends ('layouts.app')
 @section ('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Data Barang</h2>
+                <h2>Data Peminjam</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('databarang.create') }}"> Tambah Data</a>
+                <a class="btn btn-success" href="{{ route('peminjamans.create') }}"> Tambah Data</a>
             </div>
         </div>
     </div>
@@ -27,20 +27,20 @@
             <th>Deskripsi Barang</th>
             <th width="280px">Action</th>
         </tr>
-        @foreach ($barangs as $barang)
+        @foreach ($peminjamans as $barang)
         <tr>
             <td>{{ ++$i }}</td>
-            <td>{{ $barang->nama_barang }}</td>
-            <td>{{ $barang->jenis_barang }}</td>
-            <td>{{ $barang->tanggal_pengadaan }}</td>
-            <td>{{ $barang->jumlah_barang }}</td>
-            <td>{{ $barang->merk_barang}}</td>
-            <td>{{ $barang->kondisi_barang}}</td>
-            <td>{{ $barang->deskripsi_barang}}</td>
+            <td>{{  $barang->nama_barang }}</td>
+            <td>{{  $barang->jenis_barang }}</td>
+            <td>{{  $barang->tanggal_pengadaan }}</td>
+            <td>{{  $barang->jumlah_barang }}</td>
+            <td>{{  $barang->merk_barang}}</td>
+            <td>{{  $barang->kondisi_barang}}</td>
+            <td>{{  $barang->deskripsi_barang}}</td>
             <td>
-                <form action="{{ route('barangs.destroy',$barang->id) }}" method="POST">
+                <form action="{{ route('peminjamans.destroy',$barang->id) }}" method="POST">
            
-                    <a class="btn btn-primary" href="{{ route('barangs.edit',$barang->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('peminjamans.edit',$barang->id) }}">Edit</a>
      
                     @csrf
                     @method('DELETE')
@@ -52,6 +52,6 @@
         @endforeach
     </table>
     
-    {!! $barangs->links() !!}
+    {!! $peminjamans->links() !!}
         
-@endsection
+@endsection --}}

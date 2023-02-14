@@ -22,7 +22,7 @@ class BarangController extends Controller
     {
         $barangs = Barang::latest()->paginate(5);
 
-        return view('barangs.index',compact('barangs'))
+        return view('admin.barangs.index',compact('barangs'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -33,7 +33,7 @@ class BarangController extends Controller
      */
     public function create()
     {
-        return view('barangs.create');
+        return view('admin.barangs.create');
     }
 
     /**
@@ -45,19 +45,18 @@ class BarangController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            
             'nama_barang' => 'required',
             'jenis_barang' => 'required',
+            'sumber_dana' => 'required',
             'tanggal_pengadaan' => 'required',
             'jumlah_barang' => 'required',
             'merk_barang' => 'required',
+            'kategori_barang' => 'required',
             'kondisi_barang' => 'required',
             'deskripsi_barang' => 'required',
         ]);
-  
         Barang::create($request->all());
-   
-        return redirect()->route('barang.index')
+        return redirect()->route('admin.barangs.index')
                         ->with('success','Berhasil Menyimpan !');
     }
 
@@ -80,7 +79,7 @@ class BarangController extends Controller
      */
     public function edit($id)
     {
-        $barangs = Barang::all(); 
+        $barang = Barang::all(); 
         return view('barang.edit',compact('borrowing', 'books', 'students'));
     }
 
@@ -91,9 +90,24 @@ class BarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Barang $barang)
     {
-        //
+        $barang->validate([
+            'nama_barang' => 'required',
+            'jenis_barang' => 'required',
+            'sumber_dana' => 'required',
+            'tanggal_pengadaan' => 'required',
+            'jumlah_barang' => 'required',
+            'merk_barang' => 'required',
+            'kategori_barang' => 'required',
+            'kondisi_barang' => 'required',
+            'deskripsi_barang' => 'required',
+        ]);
+            
+        $barang->update($request->all());
+    
+        return redirect()->route('admin.barangs.index')
+                        ->with('success','Berhasil Update !');
     }
 
     /**

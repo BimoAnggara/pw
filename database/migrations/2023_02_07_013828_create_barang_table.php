@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateBarangTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('barang', function (Blueprint $table) {
             $table->id();
             $table->string('nama_barang');
-            $table->date('tanggal_pengadaan');
+            $table->string('jenis_barang');
             $table->string('sumber_dana');
+            $table->string('tanggal_pengadaan');
             $table->string('jumlah_barang');
             $table->string('merk_barang');
-            $table->string('jenis_barang');
             $table->string('kategori_barang');
-            $table->date('kondisi_barang');
+            $table->string('kondisi_barang');
             $table->string('deskripsi_barang');
             $table->timestamps();
         });
